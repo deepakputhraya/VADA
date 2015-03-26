@@ -1,0 +1,18 @@
+.panel-custom{
+	overflow-x:hidden; 
+}
+
+.panel-heading-default{
+	font-weight: bold !important;
+	background: #111111 !important;
+	color: white !important;
+}
+
+.featured-items{
+	white-space: nowrap;
+	overflow-x:scroll; 
+}
+
+.featured-items poster{
+	display: inline-block;
+}

@@ -1,0 +1,41 @@
+.navigation-bar{
+	padding: 1em;
+	background-color:#2D2E30;
+	border: none;
+	border-radius: 0;
+	box-shadow: 1px 2px 2px #a5a5a5;
+}
+
+.navigation-menu-container{
+}
+
+.navigation-menu{
+	float: right;
+	cursor: pointer;
+	color: white;
+	font-family:'Nova Slim',Arial,sans-serif;
+	padding: 1em;
+	background:transparent;
+	list-style: none;
+	display: inline-block;
+}
+
+.navigation-menu-selected{
+	background-color:#72727D;
+	border-radius: 4px;
+	color: white;
+}
+
+.logo-container{
+
+}
+
+#logo{
+	height: 4em;
+	float: left;
+}
+
+.navigation-menu a{
+	color:white;
+	text-decoration: none;
+}

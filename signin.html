@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VADA</title>
+	<link rel="stylesheet" type="text/css" href= "css/normalize.css" >
+  <link rel="stylesheet" type="text/css" href= "css/signin.css" >
+  <script src= "js/angular.min.js" ></script>
+  <script src= "js/user.js" ></script>
+</head>
+<body ng-app='app' ng-controller='signinController as feature'>
+  <div class='container'>
+    <h1><img id="logo" src="images/logo.png"></h1>
+  </div>
+  <form>
+    <div class="box">
+      <h1>Sign In</h1>
+      <input ng-model="feature.email" type="email" placeholder="email"  class="email" />
+
+      <input ng-model="feature.password" type="password" placeholder="password"  class="email" />
+
+      <a ng-click="feature.signin()" href='/'><div class="btn">Sign In</div></a> <!-- End Btn -->
+
+      <p>Don't have an account? <a style='color:white; text-decoration: underline;' href="signup.html">Sign Up</a> for free</p>
+
+    </div> <!-- End Box -->
+  </form>
+
+</body>
+</html>

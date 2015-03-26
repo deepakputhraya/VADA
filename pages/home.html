@@ -1,0 +1,23 @@
+<div ng-controller="CarouselDemoCtrl">
+  <div style="max-height: 45em;height: 45em;width:100%;color: black" class="col-md-6">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img class="banner-image" ng-src="{{slide.image}}"/>
+        <div class="carousel-caption"></div>
+      </slide>
+    </carousel>
+  </div>
+</div>
+<div  ng-controller="mainController as feature">
+  <div class="panel panel-default panel-custom" ng-repeat="group in feature.featuredProducts">
+    <div class="panel-heading panel-heading-default">{{group.title}}</div>
+    <div class="panel-body">
+      <div class="poster col-sm-6 col-md-4 col-lg-2" ng-repeat="item in group.products">
+        <h5 class ="poster-title">{{item.title}}</h5>
+        <a href="#/item"><img class="poster-image" ng-src="{{item.image}}" /></a>
+        <p class="poster-cart"><a class="btn btn-success" ng-click="feature.addToCart.add(item)"><span class="fa fa-shopping-cart fa-lg"></span> Add to cart</a></p>
+        <p class="poster-cart"><a class="btn btn-warning" ng-class="{'active':item.inWatchlist}" ng-click="feature.wishlist(item)"><span class="fa fa-lg" ng-class="{'fa-plus': !item.inWatchlist,'fa-check':item.inWatchlist}"></span> Wishlist</a></p>
+      </div>
+    </div>
+  </div>
+</div>
