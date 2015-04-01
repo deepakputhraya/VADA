@@ -8,36 +8,35 @@
 </head>
 <body  ng-app="app" ng-controller="signupController as control">
   <!-- Just playing around not complete yet -->
-          <h1><img id="logo" src="images/logo.png"></h1>
+  <h1><img id="logo" src="images/logo.png"></h1>
 
   <form method="post">
-  <div class="box">
-  <h1>Register</h1>
+    <div class="box">
+      <h1>Register</h1>
 
-  <input type="text" name="firstname" placeholder="First Name"  class="email" />
+      <input type="text" ng-model="control.firstname" placeholder="First Name"  class="field" />
 
-  <input type="text" name="lastname" placeholder="Last Name" class="email" />
+      <input type="text" ng-model="control.lastname" placeholder="Last Name" class="field" />
+
+      <input type="email" ng-model="control.email" placeholder="email" class="field" />
+
+      <input type="password" ng-model="control.password" placeholder="password" class="field" />
+
+      <input type="password" ng-model="control.cpassword" placeholder="confirm password" class="field" />
 
 
-  <input type="email" name="email" placeholder="email" class="email" />
+      <a><div ng-click="control.register()" class="btn">Register</div></a> <!-- End Btn -->
 
-  <input type="password" name="email" placeholder="password" class="email" />
+      <p>Already have an account? <a style='color:white; text-decoration: underline;' href="signin.html">Signin</a> here.</p>
 
-  <input type="password" name="pasword" placeholder="retype password" class="email" />
-
-
-  <a href="/"><div class="btn">Register</div></a> <!-- End Btn -->
-
-  <p>Already have an account? <a style='color:white; text-decoration: underline;' href="signin.html">Signin</a> here.</p>
-
-  </div> <!-- End Box -->
+    </div> <!-- End Box -->
 
   </form>
   <!---
   <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
 
-		<!-- Scripts Below-->
-	<script src= "js/angular.min.js" ></script>
-	<script src= "js/user.js" ></script>
+  <!-- Scripts Below-->
+  <script src= "js/angular.min.js" ></script>
+  <script src= "js/user.js" ></script>
 </body>
 </html>

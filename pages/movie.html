@@ -1,0 +1,22 @@
+<div ng-controller="movieController as filterController">
+  <div class="col-md-3">
+    <div id="accordian" class="col-md-12">
+      <ul>
+        <li ng-repeat="filter in filterController.filters">
+          <h3><span class="icon-dashboard"></span>{{filter.title}}</h3>
+          <ul>
+            <li ng-repeat="property in filter.properties" ng-click="filterController.addFilter(property)"><a><span ng-if="!property.checked"class="fa fa-square-o"></span><span ng-if="property.checked"class="fa fa-check-square-o"></span> {{property.property}}</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-9 search-results">
+    <div class="poster col-sm-6 col-md-4 col-lg-3" ng-repeat="item in filterController.filterProducts" ng-if="item.display">
+      <h5 class ="poster-title">{{item.title}}</h5>
+      <a ng-href="#/movies/{{item.id}}"><img class="poster-image" ng-src="{{item.image}}" /></a>
+      <p class="poster-cart"><a class="btn btn-success" ng-click="filterController.addToCart.add(item)"><span class="fa fa-shopping-cart fa-lg"></span> Add to cart</a></p>
+      <p class="poster-cart"><a class="btn btn-warning" ng-class="{'active':item.inWatchlist}" ng-click="filterController.wishlist(item)"><span class="fa fa-lg" ng-class="{'fa-plus': !item.inWatchlist,'fa-check':item.inWatchlist}"></span> Wishlist</a></p>
+    </div>
+  </div>
+</div>

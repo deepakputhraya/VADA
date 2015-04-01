@@ -16,11 +16,13 @@
 </head>
 <body  ng-app="featured">
 	<div  sticky class='container-fluid navbar navigation-bar' ng-controller="navigationController as navigation">
+		<h5 class='navigation-name' ng-if="navigation.loggedIn">Welcome, {{navigation.name}}</h5>
 		<div  class='logo-container col-md-4'><a href="#/"><img id='logo' src="images/logo.png"></a></div>
 		<div class='navigation-menu-container col-md-8'>
 			<ul>
-				<li class="navigation-menu"><a href="signup.html">Sign Up</a></li>
-				<li class="navigation-menu"><a href="signup.html">Sign In</a></li>
+				<li class="navigation-menu" ng-if="!navigation.loggedIn"><a href="signup.html">Sign Up</a></li>
+				<li class="navigation-menu" ng-if="!navigation.loggedIn"><a href="signin.html">Sign In</a></li>
+				<li class="navigation-menu" ng-click='navigation.logout()'ng-if="navigation.loggedIn"><a>Sign Out</a></li>
 				<li class="navigation-menu"><span class='fa fa-shopping-cart fa-lg'> </span> Cart<span ng-model="cartCount" class='badge'>{{navigation.cartCount}}</span></li>
 				<li class="navigation-menu" ng-class="navigation.navSelected=='games'?'navigation-menu-selected':''" ><a href="#/games" ng-click="console.log('okay');menuSelected('games')">Games</a></li>
 				<li class="navigation-menu" ng-class="navigation.navSelected=='movies'?'navigation-menu-selected':''" ><a href="#/movies" ng-click="navigation.setMenuSelected('movies')">Movies</a></li>
@@ -35,15 +37,17 @@
 	</div>
 
 	<!-- Scripts Below-->
-	<script src="js/angular.min.js" ></script>
-	<script src="js/angular-route.min.js" ></script>
-	<script src="js/ui-bootstrap.min.js" ></script>
-	<script src="js/sticky.min.js" ></script>
-	<script src="js/module.js" ></script>
-	<script src="js/services.js" ></script>
-	<script src="js/routing.js" ></script>
-	<script src="js/main.js" ></script>
-	<script src="js/filter.js" ></script>
-	<script src="js/item.js" ></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-cookie.js"></script>
+	<script src="js/angular-route.min.js"></script>
+	<script src="js/ui-bootstrap.min.js"></script>
+	<script src="js/sticky.min.js"></script>
+	<script src="js/module.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/routing.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/movie.js"></script>
+	<script src="js/game.js"></script>
+	<script src="js/item.js"></script>
 </body>
 </html>

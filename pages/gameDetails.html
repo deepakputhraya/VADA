@@ -1,5 +1,5 @@
 <div class='col-md-offset-1 col-md-8'>
-	<div class='col-md-12 item-details' ng-controller="selectedItem as item">
+	<div class='col-md-12 item-details' ng-controller="selectedGame as item">
 		<div class="poster col-md-3">
 			<a href="#/item"><img class="poster-image" ng-src={{item.product.poster}} /></a>
 		</div>
@@ -10,10 +10,8 @@
 			 <rating ng-model="item.product.rating" max="10" readonly="true" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating><span class='product-rating'>{{item.product.rating}}/10</span>
 			 <br>
 			 <p class='product-description'>{{item.product.description}}</p>
-			 <h5><span class='product-attribute'>Director: </span><span>{{item.product.director}}</span></h5>
+			 <h5><span class='product-attribute'>Developers: </span><span>{{item.product.developer}}</span></h5>
  			 <h5><span class='product-attribute'>Release Date: </span><span>{{item.product.releaseDate}}</span></h5>
-			 <h5><span class='product-attribute'>Language: </span><span>{{item.product.language}}</span></h5>
-			 <h5><span class='product-attribute'>Duration: </span><span>{{item.product.duration}} min</span></h5>
 			<br>
 			<p class="poster-cart product-button"><a class="btn btn-success" ng-click="item.addToCart.add(item.product)"><span class="fa fa-shopping-cart fa-lg"></span> Add to cart</a></p>
 			<p class="poster-cart product-button"><a class="btn btn-warning"><span class="fa fa-lg fa-plus"></span> Wishlist</a></p>

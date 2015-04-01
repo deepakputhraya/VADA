@@ -8,3 +8,49 @@
 .advertisements{
 	background: transparent;
 }
+
+.product-title{
+	text-align: left;
+	border-bottom: 1px solid lightgrey;
+	padding-bottom: 0.5em;
+}
+
+.product-rating{
+	padding: 0 0 0 1em;
+	font-size: 2em;
+}
+
+.glyphicon-star:before {
+  font-size: 2.5em;
+  color: #F3CE00;
+}
+
+.glyphicon-star-empty:before {
+  font-size: 2.5em;
+  color: lightgrey;
+}
+
+.product-description{
+	padding:1em 0 1em 0;
+	border-top: lightgrey 1px solid;
+}
+.product-attribute{
+	font-weight: bolder;
+	color: grey;
+}
+
+.product-button{
+	display: inline-block;
+	width: 30%;
+}
+
+.product-tags{
+	border: 2px solid lightgrey;
+	display: inline-block;
+	padding: 2px;
+	margin-bottom: 1em;
+	margin-right: 0.5em;
+	border-radius: 0.5em;
+	font-weight: bolder;
+	color: grey;
+}

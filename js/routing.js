@@ -9,12 +9,17 @@ app.config(function($routeProvider) {
             })
 
             .when('/movies', {
-                templateUrl : 'pages/filter.html',
+                templateUrl : 'pages/movie.html',
             })
 
             .when('/games', {
-                templateUrl : 'pages/filter.html',
+                templateUrl : 'pages/game.html',
+            })
+             .when('/movies/:id', {
+                templateUrl : 'pages/item.html',
+            })
+            .when('/games/:id', {
+                templateUrl : 'pages/gameDetails.html',
             });
-
 
     });
