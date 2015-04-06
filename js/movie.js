@@ -22,6 +22,7 @@ $scope.$watch('navSelected', function (newValue, oldValue) {
     for(i=0;i<data.length;++i){
       vm.filterProducts.push({
         type: 'movie',
+        stock: parseInt(data[i].stock),
         id:data[i].id,
         genre: data[i].genre,
         title : data[i].title,

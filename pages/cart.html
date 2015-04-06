@@ -1,0 +1,34 @@
+<div ng-controller="cart as controller">
+<table class="col-md-10 col-md-offset-1">
+	<caption></caption>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Product</th>
+			<th>Deposit</th>
+			<th>Rent</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in controller.cart">
+			<td><div class="cart-poster col-sm-7 col-md-5 col-lg-3">
+					<a ng-href="item.url"><img class="poster-image" ng-src="{{item.poster}}"/></a>
+				</div></td>
+			<td>{{item.title}}</td>
+			<td><span class='fa fa-rupee'></span> {{item.deposit}}</td>
+			<td><span class='fa fa-rupee'></span> {{item.rent}}</td>
+			<td><span class='fa fa-rupee'></span> {{item.deposit+item.rent}}</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>Total</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th><span class='fa fa-rupee'></span> {{controller.total}}</th>
+		</tr>
+	</tfoot>
+</table>
+</div>

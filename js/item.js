@@ -58,11 +58,6 @@ app.controller("recommendedItems", function($scope,menuSelected){
 }
 ];
 
-vm.wishlist=function(itemSelected){
- itemSelected.inWatchlist=!itemSelected.inWatchlist;
- console.log(vm.featuredProducts);
-}
-
 vm.addToCart=function(itemSelected){
  vm.cart.push(itemSelected);
  vm.inCartCount++;
@@ -107,6 +102,7 @@ app.controller("selectedItem", function($scope,$route,$routeParams,$http,addToCa
     vm.f1=true;
     vm.product=data;
     vm.product.type="movie";
+    vm.product.stock=parseInt(vm.product.stock);
     vm.product.poster='http://localhost:8000'+data.poster;
 
     fil=$http({withCredentials: true, method: 'GET', url: "http://localhost:8000/api/movies/genre/"});
@@ -145,6 +141,7 @@ app.controller("selectedGame", function($scope,$route,$routeParams,$http,addToCa
     vm.f1=true;
     vm.product=data;
     vm.product.type='game';
+    vm.product.stock=parseInt(vm.product.stock);
     vm.product.poster='http://localhost:8000'+data.poster;
 
     fil=$http({withCredentials: true, method: 'GET', url: "http://localhost:8000/api/games/genre/"});

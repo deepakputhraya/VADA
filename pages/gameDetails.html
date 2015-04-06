@@ -13,8 +13,9 @@
 			 <h5><span class='product-attribute'>Developers: </span><span>{{item.product.developer}}</span></h5>
  			 <h5><span class='product-attribute'>Release Date: </span><span>{{item.product.releaseDate}}</span></h5>
 			<br>
-			<p class="poster-cart product-button"><a class="btn btn-success" ng-click="item.addToCart.add(item.product)"><span class="fa fa-shopping-cart fa-lg"></span> Add to cart</a></p>
-			<p class="poster-cart product-button"><a class="btn btn-warning"><span class="fa fa-lg fa-plus"></span> Wishlist</a></p>
+			<p class="poster-cart product-button" ng-if="item.product.stock>0"><a class="btn btn-success" ng-click="item.addToCart.add(item.product)"><span class="fa fa-shopping-cart fa-lg"></span> Add to cart</a></p>
+			<p class="poster-cart product-button" ng-if="!item.product.stock"><a class="btn btn-danger active"></span> Out of Stock</a></p>
+			<!--<p class="poster-cart product-button"><a class="btn btn-warning"><span class="fa fa-lg fa-plus"></span> Wishlist</a></p>-->
 		</div>
 	</div>
 	<div ng-controller="recommendedItems as feature">
@@ -25,7 +26,8 @@
 					<h5 class ="poster-title">{{item.title}}</h5>
 					<a href="#/item"><img class="poster-image" ng-src="{{item.image}}" /></a>
 					<p class="poster-cart"><a class="btn btn-success" ng-click="feature.addToCart(item)"><span class="fa fa-shopping-cart fa-lg"></span> Add to cart</a></p>
-					<p class="poster-cart"><a class="btn btn-warning" ng-class="{'active':item.inWatchlist}" ng-click="feature.wishlist(item)"><span class="fa fa-lg" ng-class="{'fa-plus': !item.inWatchlist,'fa-check':item.inWatchlist}"></span> Wishlist</a></p>
+					<!--
+					<p class="poster-cart"><a class="btn btn-warning" ng-class="{'active':item.inWatchlist}" ng-click="feature.wishlist(item)"><span class="fa fa-lg" ng-class="{'fa-plus': !item.inWatchlist,'fa-check':item.inWatchlist}"></span> Wishlist</a></p>-->
 				</div>
 			</div>
 		</div>

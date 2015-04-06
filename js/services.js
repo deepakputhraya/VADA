@@ -42,6 +42,15 @@ app.factory('addToCart',function($http,ipCookie){
     },
 
     add:function(product){
+      var res= $http({
+      withCredentials:true,
+      method: 'POST',
+      url: 'http://localhost:8000/api/authenticate',
+      headers: {
+        'Content-Type': 'application/json'
+          }}); //
+
+    res.success(function(data, status, headers, config) {
       var flag=1;
       console.log(product);
       if(product.type=='movie')
@@ -83,9 +92,15 @@ app.factory('addToCart',function($http,ipCookie){
           });
           cart.error(function(data, status, headers, config) {
             console.log( "failure to add to cart");
-            alert('Please Register or Login');
+            alert('Item out of Stock');
           });
         }
+
+    });
+    res.error(function(data, status, headers, config) {
+    alert('Please Register or Login');
+    console.log( "Please Sign In");
+    });
       }
     };
   });

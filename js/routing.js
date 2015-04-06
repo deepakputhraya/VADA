@@ -16,10 +16,13 @@ app.config(function($routeProvider) {
                 templateUrl : 'pages/game.html',
             })
              .when('/movies/:id', {
-                templateUrl : 'pages/item.html',
+                templateUrl : 'pages/movieDetails.html',
             })
             .when('/games/:id', {
                 templateUrl : 'pages/gameDetails.html',
+            })
+            .when('/cart', {
+                templateUrl : 'pages/cart.html',
             });
 
     });

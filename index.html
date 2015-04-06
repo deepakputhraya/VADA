@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="css/poster.css" >
 	<link rel="stylesheet" type="text/css" href="css/filter.css" >
 	<link rel="stylesheet" type="text/css" href="css/item.css" >
-
+	<link rel="stylesheet" type="text/css" href="css/cart.css" >
 </head>
 <body  ng-app="featured">
 	<div  sticky class='container-fluid navbar navigation-bar' ng-controller="navigationController as navigation">
@@ -23,7 +23,7 @@
 				<li class="navigation-menu" ng-if="!navigation.loggedIn"><a href="signup.html">Sign Up</a></li>
 				<li class="navigation-menu" ng-if="!navigation.loggedIn"><a href="signin.html">Sign In</a></li>
 				<li class="navigation-menu" ng-click='navigation.logout()'ng-if="navigation.loggedIn"><a>Sign Out</a></li>
-				<li class="navigation-menu"><span class='fa fa-shopping-cart fa-lg'> </span> Cart<span ng-model="cartCount" class='badge'>{{navigation.cartCount}}</span></li>
+				<li class="navigation-menu" ng-class="navigation.navSelected=='cart'?'navigation-menu-selected':''" ><a href="#/cart"><span class='fa fa-shopping-cart fa-lg'></span>  Cart<span ng-model="cartCount" class='badge'>{{navigation.cartCount}}</span></a></li>
 				<li class="navigation-menu" ng-class="navigation.navSelected=='games'?'navigation-menu-selected':''" ><a href="#/games" ng-click="console.log('okay');menuSelected('games')">Games</a></li>
 				<li class="navigation-menu" ng-class="navigation.navSelected=='movies'?'navigation-menu-selected':''" ><a href="#/movies" ng-click="navigation.setMenuSelected('movies')">Movies</a></li>
 				<li class="navigation-menu" ng-class="navigation.navSelected=='home'?'navigation-menu-selected':''" ><a href="#/" ng-click="navigation.setMenuSelected('home')">Home</a></li>
@@ -49,5 +49,6 @@
 	<script src="js/movie.js"></script>
 	<script src="js/game.js"></script>
 	<script src="js/item.js"></script>
+	<script src="js/cart.js"></script>
 </body>
 </html>

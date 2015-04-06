@@ -1,0 +1,25 @@
+.cart-poster{
+	height: 6em;
+	width: 6em;
+}
+
+tr{
+	font-family: 'Open Sans', sans-serif;
+	border: 1px solid lightgrey;
+	text-align: center;
+	padding: 0.5em;
+}
+
+td{
+	text-align: center;
+	padding: 0.5em;
+	background-color: white;
+}
+
+th{
+	text-align: center;
+	padding: 1em;
+	font-size: 1.2em;
+	background-color:#2D2E30;
+	color: white;
+}

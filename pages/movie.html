@@ -15,8 +15,9 @@
     <div class="poster col-sm-6 col-md-4 col-lg-3" ng-repeat="item in filterController.filterProducts" ng-if="item.display">
       <h5 class ="poster-title">{{item.title}}</h5>
       <a ng-href="#/movies/{{item.id}}"><img class="poster-image" ng-src="{{item.image}}" /></a>
-      <p class="poster-cart"><a class="btn btn-success" ng-click="filterController.addToCart.add(item)"><span class="fa fa-shopping-cart fa-lg"></span> Add to cart</a></p>
-      <p class="poster-cart"><a class="btn btn-warning" ng-class="{'active':item.inWatchlist}" ng-click="filterController.wishlist(item)"><span class="fa fa-lg" ng-class="{'fa-plus': !item.inWatchlist,'fa-check':item.inWatchlist}"></span> Wishlist</a></p>
+      <p class="poster-cart" ng-if="item.stock"><a class="btn btn-success" ng-click="filterController.addToCart.add(item)"><span class="fa fa-shopping-cart fa-lg"></span> Add to cart</a></p>
+      <p class="poster-cart" ng-if="!item.stock"><a class="btn btn-danger active"> Out Of Stock</a></p>
+      <!--<p class="poster-cart"><a class="btn btn-warning" ng-class="{'active':item.inWatchlist}" ng-click="filterController.wishlist(item)"><span class="fa fa-lg" ng-class="{'fa-plus': !item.inWatchlist,'fa-check':item.inWatchlist}"></span> Wishlist</a></p>-->
     </div>
   </div>
 </div>
