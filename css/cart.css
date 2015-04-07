@@ -3,6 +3,10 @@
 	width: 6em;
 }
 
+table{
+	margin-bottom: 1em;
+}
+
 tr{
 	font-family: 'Open Sans', sans-serif;
 	border: 1px solid lightgrey;
@@ -22,4 +26,74 @@ th{
 	font-size: 1.2em;
 	background-color:#2D2E30;
 	color: white;
+}
+
+.removeCart{
+	cursor: pointer;
+	color: blue;
+	text-decoration: underline;
+}
+
+.cart-title{
+	text-align: left;
+	font-size: 1.5em;
+}
+
+.no-item-message{
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 2em;
+}
+
+.cart-header{
+	background-color: black;
+	color: white;
+	font-weight: bolder;
+}
+
+.custom-panel{
+	padding: 0;
+}
+
+.custom-panel textarea{
+	width: 100%;
+	height: 5em;
+	padding: 5px;
+	font-size: 1.2em;
+}
+
+.address-input{
+	width: 49%;
+	font-size: 1.2em;
+	padding: 3px;
+}
+
+.payment-method{
+	border: 1px lightgrey solid;
+	padding: 1em;
+	text-align: center;
+	cursor: pointer;
+}
+
+.payment-method-selected{
+	background-color: lightgrey;
+}
+
+.payment-method:hover{
+	background-color: lightgrey;
+}
+
+.checkout-button{
+	display: block;
+	font-size: 1.3em;
+	background-color: black;
+	padding: 1em;
+	color:white;
+}
+
+#checkout{
+	background-color: white;
+	float: right;
+	color: black;
+	padding: 0.4em;
 }

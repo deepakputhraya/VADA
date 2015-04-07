@@ -1,9 +1,9 @@
-app.controller("recommendedItems", function($scope,menuSelected){
+app.controller("recommendedItems", function($http,$scope,menuSelected){
  var vm = this;
  menuSelected.set('');
 
  vm.cart=[];
-
+/*
  vm.products = [
  {
    title: "People who rented this also rented",
@@ -57,6 +57,66 @@ app.controller("recommendedItems", function($scope,menuSelected){
 ]
 }
 ];
+*/
+
+
+vm.movies=[];
+vm.games=[];
+
+vm.featuredProducts=[];
+var responsePromise=$http({withCredentials: true, method: 'GET', url: "http://localhost:8000/api/movies" });
+  //var responsePromise = $http.get("http://localhost:8000/api/movies");
+  responsePromise.success(function(data, status, headers, config) {
+    for(i=0;i<4;++i){
+      vm.movies.push({
+        url: "/movies/"+data[i].id,
+        type: "movie",
+        id:data[i].id,
+        genre: data[i].genre,
+        title : data[i].title,
+        image: data[i].poster,
+        inWatchlist: 0,
+        display: true
+      });
+    }
+     vm.featuredProducts.push({
+        title: 'Movies',
+        products: vm.movies
+      });
+     console.log(vm.featuredProducts);
+  });
+
+  responsePromise.error(function(data, status, headers, config) {
+    alert("AJAX failed!");
+  });
+
+
+var gameRequest=$http({withCredentials: true, method: 'GET', url: "http://localhost:8000/api/games" });
+  //var responsePromise = $http.get("http://localhost:8000/api/movies");
+  gameRequest.success(function(data, status, headers, config) {
+    for(i=0;i<4;++i){
+      vm.games.push({
+        url: "/games/"+data[i].id,
+        type: "game",
+        id:data[i].id,
+        genre: data[i].genre,
+        title : data[i].title,
+        image: data[i].poster,
+        inWatchlist: 0,
+        display: true
+      });
+    }
+     vm.featuredProducts.push({
+        title: 'Games',
+        products: vm.games
+      });
+     console.log(vm.featuredProducts);
+  });
+
+  gameRequest.error(function(data, status, headers, config) {
+    alert("AJAX failed!");
+  });
+
 
 vm.addToCart=function(itemSelected){
  vm.cart.push(itemSelected);
@@ -72,18 +132,23 @@ app.controller("advertisements", function($scope){
  {
   title: "Inception",
   image: "images/posters/Inception-poster.jpg",
+  url: "#/movies/2",
 },
 {
   title: "Avengers",
   image: "images/posters/avengers-poster.jpg",
+  url: "#/movies/9",
 },
 {
   title: "Skyfall",
   image: "images/posters/skyfall-poster.jpg",
+  url: "#/movies/6",
+
 },
 {
   title: "Lego",
   image: "images/posters/Lego-poster.jpg",
+  url: "#/movies/5",
 }
 ];
 });

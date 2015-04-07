@@ -19,12 +19,12 @@
 		</div>
 	</div>
 	<div ng-controller="recommendedItems as feature">
-		<div class="panel panel-default panel-custom"  ng-repeat="group in feature.products">
+		<div class="panel panel-default panel-custom"  ng-repeat="group in feature.featuredProducts">
 			<div class="panel-heading panel-heading-default">{{group.title}}</div>
 			<div class="panel-body">
 				<div class="poster col-sm-7 col-md-5 col-lg-3" ng-repeat="item in group.products">
 					<h5 class ="poster-title">{{item.title}}</h5>
-					<a href="#/item"><img class="poster-image" ng-src="{{item.image}}" /></a>
+					<a ng-href="#{{item.url}}"><img class="poster-image" ng-src="{{item.image}}" /></a>
 					<p class="poster-cart"><a class="btn btn-success" ng-click="feature.addToCart(item)"><span class="fa fa-shopping-cart fa-lg"></span> Add to cart</a></p>
 					<!--
 					<p class="poster-cart"><a class="btn btn-warning" ng-class="{'active':item.inWatchlist}" ng-click="feature.wishlist(item)"><span class="fa fa-lg" ng-class="{'fa-plus': !item.inWatchlist,'fa-check':item.inWatchlist}"></span> Wishlist</a></p>-->
@@ -37,6 +37,6 @@
 <div class="advertisements col-md-2" ng-controller="advertisements as promotions">
 	<div class="poster" ng-repeat="add in promotions.adds">
 		<h5 class ="poster-title">{{add.title}}</h5>
-		<a href="#/item"><img class="poster-image" ng-src="{{add.image}}" /></a>
+		<a ng-href="{{add.url}}"><img class="poster-image" ng-src="{{add.image}}" /></a>
 	</div>
 </div>

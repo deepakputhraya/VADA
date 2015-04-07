@@ -25,7 +25,10 @@ app.controller("signinController", function($http,checkAuthentication,ipCookie){
 	checkAuthentication.check();
 	var csrf=ipCookie('csrftoken');
 	var vm = this;
+	vm.email=null;
+	vm.password=null;
 	vm.signin=function(){
+		console.log(vm);
 		if(vm.email!=null&&vm.password!=null){
 		console.log(vm);
 		var data={
@@ -50,11 +53,11 @@ app.controller("signinController", function($http,checkAuthentication,ipCookie){
 		res.error(function(data, status, headers, config) {
 			console.log( "failure message");
 		});
-	}}
+	}};
 });
 
 
-app.controller("signupController", function($http,checkAuthentication){
+app.controller("signupController", function($http,checkAuthentication,ipCookie){
 	checkAuthentication.check();
 	var vm = this;
 	vm.register=function(){
@@ -82,6 +85,8 @@ app.controller("signupController", function($http,checkAuthentication){
 
 
 				res.success(function(data, status, headers, config) {
+					alert("Your account has been created Successfully");
+					window.location="/";
 					console.log("success");
 				});
 				res.error(function(data, status, headers, config) {

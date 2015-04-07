@@ -1,5 +1,5 @@
 <div ng-controller="cart as controller">
-<table class="col-md-10 col-md-offset-1">
+<table class="col-md-10 col-md-offset-1" ng-if="controller.cart.length>0">
 	<caption></caption>
 	<thead>
 		<tr>
@@ -8,6 +8,7 @@
 			<th>Deposit</th>
 			<th>Rent</th>
 			<th>Total</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -15,10 +16,11 @@
 			<td><div class="cart-poster col-sm-7 col-md-5 col-lg-3">
 					<a ng-href="item.url"><img class="poster-image" ng-src="{{item.poster}}"/></a>
 				</div></td>
-			<td>{{item.title}}</td>
+			<td class='cart-title'>{{item.title}}</td>
 			<td><span class='fa fa-rupee'></span> {{item.deposit}}</td>
 			<td><span class='fa fa-rupee'></span> {{item.rent}}</td>
 			<td><span class='fa fa-rupee'></span> {{item.deposit+item.rent}}</td>
+			<td><span ng-click="controller.removeItem(item)"class='removeCart'>Remove</span></td>
 		</tr>
 	</tbody>
 	<tfoot>
@@ -28,7 +30,43 @@
 			<th></th>
 			<th></th>
 			<th><span class='fa fa-rupee'></span> {{controller.total}}</th>
+			<th></th>
 		</tr>
 	</tfoot>
 </table>
+<h1 class="no-item-message" ng-if="controller.cart.length==0">No Items In cart</h1>
+
+
+<div class='fluid-continer'>
+<div class="panel panel-default panel-custom col-md-4 col-md-offset-1 custom-panel">
+    <div class="panel-heading panel-heading-default cart-header">Address</div>
+    <div class="panel-body">
+	<textarea placeholder='Address' ng-model="controller.address"></textarea>
+	<input ng-model="controller.city" class='address-input' type="text" value="" placeholder="City">
+    <input ng-model="controller.pin" class='address-input' type="text" value="" placeholder="Pincode">
+    </div>
 </div>
+
+<div class="panel panel-default panel-custom col-md-5 col-md-offset-1 custom-panel">
+    <div class="panel-heading panel-heading-default">Payment Method</div>
+    <div class="panel-body">
+    	<div class='payment-method col-md-6' ng-click="controller.methodSelected=1" ng-class="controller.methodSelected==1 ?'payment-method-selected':''" >
+    		<h4><span class='fa fa-inr'></span> Cash On Delivery</h4>
+    	</div>
+    	<div class='payment-method col-md-6' ng-click="controller.methodSelected=2" ng-class="controller.methodSelected==2 ?'payment-method-selected':''" >
+    		<h4><span class='fa fa-cc-visa'></span> Credit Card</h4>
+    	</div>
+    	<div class='payment-method col-md-6' ng-click="controller.methodSelected=3" ng-class="controller.methodSelected==3 ?'payment-method-selected':''" >
+    		<h4><span class='fa fa-laptop'></span> Internet Banking</h4>
+    	</div>
+    	<div class='payment-method col-md-6' ng-click="controller.methodSelected=4" ng-class="controller.methodSelected==4 ?'payment-method-selected':''" >
+    		<h4><span class='fa fa-credit-card'></span> Debit Vard</h4>
+    	</div>
+    </div>
+</div>
+<h1 class="checkout-button col-md-10 col-md-offset-1">Check Out<span ng-click="controller.checkout()" id="checkout" class='fa fa-chevron-right'></span></h1>
+
+</div>
+</div>
+
+

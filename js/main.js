@@ -12,7 +12,27 @@ app.controller("navigationController",function(ipCookie,$http,$scope,menuSelecte
         if (newValue !== oldValue) vm.cartCount = newValue;
     });
 
+vm.cartClick=function(){
+  if(vm.cartCount==0){
+    var auth= $http({
+      withCredentials:true,
+      method: 'POST',
+      url: 'http://localhost:8000/api/authenticate',
+      headers: {
+        'Content-Type': 'application/json'
+          }}); //
 
+auth.success(function(data,status,headers,config){
+  alert("There are no items in cart");
+});
+
+auth.error(function(data,status,headers,config){
+  console.log("Cant Access Cart");
+  alert("Please Login or Register");
+  });
+  }  else
+    window.location="#/cart";
+};
 
 vm.loggedIn=false;
 //Check for Login

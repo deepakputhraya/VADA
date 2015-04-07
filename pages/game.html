@@ -1,5 +1,9 @@
 <div ng-controller="gameController as filterController">
   <div class="col-md-3">
+  <div class="input-group movieSearch">
+      <div class="input-group-addon"><span class='fa fa-search'></span></div>
+      <input type="text" class="form-control" ng-model="search.title" placeholder="Search">
+    </div>
     <div id="accordian" class="col-md-12">
       <ul>
         <li ng-repeat="filter in filterController.filters">
@@ -12,7 +16,7 @@
     </div>
   </div>
   <div class="col-md-9 search-results">
-    <div class="poster col-sm-6 col-md-4 col-lg-3" ng-repeat="item in filterController.filterProducts" ng-if="item.display">
+    <div class="poster col-sm-6 col-md-4 col-lg-3" ng-repeat="item in filterController.filterProducts|filter:search.title" ng-if="item.display">
       <h5 class ="poster-title">{{item.title}}</h5>
       <a ng-href="#/games/{{item.id}}"><img class="poster-image" ng-src="{{item.image}}" /></a>
       <p class="poster-cart" ng-if="item.stock"><a class="btn btn-success" ng-click="filterController.addToCart.add(item)"><span class="fa fa-shopping-cart fa-lg"></span> Add to cart</a></p>

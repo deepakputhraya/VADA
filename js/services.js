@@ -101,6 +101,26 @@ app.factory('addToCart',function($http,ipCookie){
     alert('Please Register or Login');
     console.log( "Please Sign In");
     });
+      },
+    remove:function(id,type){
+      cartCount--;
+      console.log("here!");
+      if(type=='movie'){
+        for(i=0;i<movies.length;++i){
+          if(movies[i]==id){
+            movies.splice(i,1);
+            break;
+          }
+        }
       }
+      else{
+        for(i=0;i<games.length;++i){
+          if(games[i]==id){
+            games.splice(i,1);
+            break;
+          }
+        }
+      }
+    }
     };
   });
